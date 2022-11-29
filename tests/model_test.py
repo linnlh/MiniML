@@ -1,9 +1,9 @@
 from mini_ml.neighbors import KNNClassifier
+from mini_ml.naive_bayes import MultinomialNB
 
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
-from sklearn.neighbors import KNeighborsClassifier
 
 if __name__ == "__main__":
     iris = load_iris()
@@ -16,5 +16,5 @@ if __name__ == "__main__":
 
     y_pred = clf.predict(X_test)
 
-    print("y test: ", y_test)
-    print("y pred: ", y_pred)
+    precision = (float)(np.sum(y_pred == y_test)) / y_test.shape[0]
+    print("precision: ", precision)
