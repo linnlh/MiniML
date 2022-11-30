@@ -1,5 +1,6 @@
 from mini_ml.neighbors import KNNClassifier
 from mini_ml.naive_bayes import MultinomialNB
+from mini_ml.metrics import accuracy
 
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -16,5 +17,4 @@ if __name__ == "__main__":
 
     y_pred = clf.predict(X_test)
 
-    precision = (float)(np.sum(y_pred == y_test)) / y_test.shape[0]
-    print("precision: ", precision)
+    print("accuracy: ", accuracy(y_pred, y_test))
