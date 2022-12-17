@@ -1,4 +1,6 @@
-class LinearModel(object):
+from mini_ml.base import BaseEstimator
+
+class LinearModel(BaseEstimator):
     """Base class for linear model"""
 
     def __init__(self, step_size=0.2, max_iter=100, eps=1e-5,
@@ -11,6 +13,8 @@ class LinearModel(object):
             theta: Initial guess for theta. If None, use the zero vector.
             verbose: Print loss values during training.
         """
+        super(LinearModel, self).__init__()
+        
         self.theta = theta
         self.step_size = step_size
         self.max_iter = max_iter
